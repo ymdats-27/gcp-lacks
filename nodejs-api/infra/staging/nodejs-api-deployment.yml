@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nodejs-api
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: nodejs-api
+    spec:
+      containers:
+        - name: nodejs-api
+          image: gcr.io/gcp-yuito-sandbox/nodejs-api:COMMIT_SHA
+          ports:
+            - containerPort: 3000
